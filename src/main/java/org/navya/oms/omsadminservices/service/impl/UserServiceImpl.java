@@ -30,8 +30,7 @@ public class UserServiceImpl implements UserService {
 
     userModel.setCreateTimestamp(LocalDateTime.now());
 
-    UserEntity newUserEntity = userRepository.save(new UserEntity(userModel));
-    return new UserModel(newUserEntity);
+    return new UserModel(userRepository.save(new UserEntity(userModel)));
   }
 
   @Override
@@ -53,6 +52,13 @@ public class UserServiceImpl implements UserService {
     log.info("UserServiceImpl.updateUser called with userModel: {}", userModel);
 
     return new UserModel(userRepository.save(new UserEntity(userModel)));
+  }
+
+  @Override
+  public UserModel getUserById(String userId) {
+    log.info("UserServiceImpl.getUserById called with userId: {}", userId);
+
+    return userRepository.findById(UUID.fromString(userId)).map(UserModel::new).orElse(null);
   }
 
   @Override

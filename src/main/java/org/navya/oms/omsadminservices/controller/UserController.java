@@ -39,6 +39,12 @@ public class UserController {
     return ApiResponseModel.of(Collections.singletonList(newUser), null);
   }
 
+  @GetMapping(value = "/{userId}")
+  public ApiResponseModel<UserModel> getUserById(@PathVariable String userId) {
+    log.info("UserController.getUserById enter");
+    return ApiResponseModel.of(Collections.singletonList(userService.getUserById(userId)), null);
+  }
+
   @DeleteMapping(value = "/{userId}")
   public ApiResponseModel<?> deleteUser(@PathVariable String userId) {
     log.info("UserController.deleteUser called with userId: {}", userId);

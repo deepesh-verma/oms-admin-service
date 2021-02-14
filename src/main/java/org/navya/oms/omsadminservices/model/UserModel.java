@@ -19,8 +19,6 @@ public class UserModel extends BaseAuditedModel {
 
   @NotNull String userName;
 
-  @NotNull Integer isSoftDeleted;
-
   @NotNull String firstName;
 
   @NotNull String lastName;
@@ -38,14 +36,14 @@ public class UserModel extends BaseAuditedModel {
   public UserModel(UserEntity userEntity) {
     this.userId = userEntity.getUserId();
     this.userName = userEntity.getUserName();
-    this.isSoftDeleted = userEntity.getIsSoftDeleted();
     this.firstName = userEntity.getUserProfile().getFirstName();
     this.lastName = userEntity.getUserProfile().getLastName();
     this.dateOfBirth = userEntity.getUserProfile().getDateOfBirth();
-    ;
     this.age = userEntity.getUserProfile().getAge();
     this.sex = userEntity.getUserProfile().getSex();
     this.email = userEntity.getUserProfile().getEmail();
     this.lastLoginTimestamp = userEntity.getLastLoginTimestamp();
+    this.createTimestamp = userEntity.getCreateTimestamp();
+    this.updateTimestamp = userEntity.getUpdateTimestamp();
   }
 }

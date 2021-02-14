@@ -22,9 +22,6 @@ public class UserEntity extends BaseAuditedEntity {
   @Column(name = "user_name")
   private String userName;
 
-  @Column(name = "is_soft_deleted")
-  private Integer isSoftDeleted;
-
   @Column(name = "last_login_ts")
   private LocalDateTime lastLoginTimestamp;
 
@@ -35,7 +32,6 @@ public class UserEntity extends BaseAuditedEntity {
   public UserEntity(UserModel userModel) {
     this.userId = userModel.getUserId();
     this.userName = userModel.getUserName();
-    this.isSoftDeleted = userModel.getIsSoftDeleted();
     this.lastLoginTimestamp = userModel.getLastLoginTimestamp();
     this.userProfile = new UserProfileEntity(userModel, this);
     this.createTimestamp = userModel.getCreateTimestamp();

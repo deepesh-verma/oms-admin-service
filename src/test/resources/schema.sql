@@ -21,7 +21,7 @@ create table oms.users (
 	user_id binary(16) not null primary key,
 	user_name varchar(20) not null,
 	last_login_ts timestamp,
-	is_soft_deleted tinyint(1) not null default 0,
+	-- TODO:// implement later is_soft_deleted tinyint(1) not null default 0,
 	create_ts timestamp not null,
 	update_ts timestamp not null default current_timestamp
 );
