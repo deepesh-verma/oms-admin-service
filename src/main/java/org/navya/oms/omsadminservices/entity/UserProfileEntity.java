@@ -9,6 +9,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.navya.oms.omsadminservices.model.SexEnum;
 import org.navya.oms.omsadminservices.model.UserModel;
 
 @Data
@@ -37,9 +38,10 @@ public class UserProfileEntity extends BaseAuditedEntity {
   @Column(name = "age")
   private Integer age;
 
+  @Enumerated(EnumType.STRING)
   @NotNull
   @Column(name = "sex")
-  private String sex;
+  private SexEnum sex;
 
   @NotNull
   @Email

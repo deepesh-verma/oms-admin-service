@@ -10,7 +10,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.testcontainers.containers.MariaDBContainer;
 import org.testcontainers.utility.DockerImageName;
 
@@ -38,6 +42,12 @@ public class OmsAdminServicesApplicationTests {
     String jdbcUrl = mariaDB.getJdbcUrl();
     log.info("Setting system properties : jdbcUrl: {}", jdbcUrl);
     System.setProperty("spring.datasource.url", jdbcUrl);
+  }
+
+  protected MultiValueMap<String, String> getHeaders() {
+    MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
+    headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
+    return headers;
   }
 
   @Test

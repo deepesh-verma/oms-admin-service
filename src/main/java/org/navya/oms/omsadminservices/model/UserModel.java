@@ -29,7 +29,7 @@ public class UserModel extends BaseAuditedModel {
 
   @NotNull Integer age;
 
-  @NotNull String sex;
+  @NotNull SexEnum sex;
 
   @NotNull String email;
 
@@ -45,7 +45,7 @@ public class UserModel extends BaseAuditedModel {
     ;
     this.age = userEntity.getUserProfile().getAge();
     this.sex = userEntity.getUserProfile().getSex();
-    this.email = userEntity.getUserProfile().getSex();
+    this.email = userEntity.getUserProfile().getEmail();
     this.lastLoginTimestamp = userEntity.getLastLoginTimestamp();
   }
 }
