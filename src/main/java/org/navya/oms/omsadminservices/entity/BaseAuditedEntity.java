@@ -1,14 +1,12 @@
 package org.navya.oms.omsadminservices.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
@@ -16,10 +14,10 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public class BaseAuditedEntity {
 
-    @NotNull
-    @Column(name = "CREATE_TS")
-    protected LocalDateTime createTimestamp;
+  @NotNull
+  @Column(name = "CREATE_TS")
+  protected LocalDateTime createTimestamp;
 
-    @Column(name = "UPDATE_TS")
-    protected LocalDateTime updateTimestamp;
+  @Column(name = "UPDATE_TS")
+  protected LocalDateTime updateTimestamp;
 }

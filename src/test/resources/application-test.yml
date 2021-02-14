@@ -2,7 +2,3 @@ spring:
   datasource:
     initialization-mode: always
     schema: classpath:schema.sql
-    jpa:
-      show-sql: true
-      hibernate:
-        ddl-auto: none

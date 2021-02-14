@@ -4,5 +4,5 @@ import org.navya.oms.omsadminservices.model.AddressTypeModel;
 
 public interface AddressTypeService {
 
-    AddressTypeModel saveAddressType(AddressTypeModel addressTypeModel);
+  AddressTypeModel saveAddressType(AddressTypeModel addressTypeModel);
 }
